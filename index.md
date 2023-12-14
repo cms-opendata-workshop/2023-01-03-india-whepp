@@ -99,6 +99,8 @@ Sign up to receive future editions and read our full archive: <a href="https://c
 </p>
 {% if site.carpentry == "swc" %}
 {% include swc/intro.html %}
+{% if site.carpentry == "cms" %}
+{% include swc/intro.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/intro.html %}
 {% elsif site.carpentry == "lc" %}
@@ -116,6 +118,8 @@ Explain who your audience is.  (In particular, tell readers if the
 workshop is only open to people from a particular institution.
 {% endcomment %}
 {% if site.carpentry == "swc" %}
+{% include swc/who.html %}
+{% if site.carpentry == "cms" %}
 {% include swc/who.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/who.html %}
@@ -371,6 +375,8 @@ of code below the Schedule `<h2>` header below with
 <h2 id="schedule">Schedule</h2>
 
 {% if site.carpentry == "swc" %}
+{% include swc/schedule.html %}
+{% if site.carpentry == "cms" %}
 {% include swc/schedule.html %}
 {% elsif site.carpentry == "dc" %}
 {% include dc/schedule.html %}
