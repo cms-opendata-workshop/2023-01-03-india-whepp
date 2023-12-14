@@ -19,7 +19,6 @@ email: ["cms-dpoa-coordinators@cern.ch"]    # boxed, comma-separated list of con
 collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
-
 {% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
 
 {% comment %}
@@ -30,6 +29,7 @@ If the value is not 'true', 'false', 'null', or a number, please use
 double quotation marks around the value, unless specified otherwise.
 And run 'make workshop-check' *before* committing to make sure that changes are good.
 {% endcomment %}
+
 
 {% comment %}
 Check DC curriculum
@@ -84,9 +84,6 @@ INTRODUCTION
 Edit the general explanatory paragraph below if you want to change
 the pitch.
 {% endcomment %}
-
-{% if site.carpentry == "swc" %}
-{% include swc/intro.html %}
 {% if site.carpentry == "cms" %}
 {% include swc/intro.html %}
 {% elsif site.carpentry == "dc" %}
@@ -105,8 +102,6 @@ AUDIENCE
 Explain who your audience is.  (In particular, tell readers if the
 workshop is only open to people from a particular institution.
 {% endcomment %}
-{% if site.carpentry == "swc" %}
-{% include swc/who.html %}
 {% if site.carpentry == "cms" %}
 {% include swc/who.html %}
 {% elsif site.carpentry == "dc" %}
@@ -163,7 +158,7 @@ This block displays the date and links to Google Calendar.
 <p id="when">
   <strong>When:</strong>
   {{page.humandate}}.
-  {% include workshop_calendar.html %} <strong>[India Standard Time (IST)]</strong>
+  {% include workshop_calendar.html %} <strong>[US Central Daylight Time (CDT)]</strong>
 </p>
 {% endif %}
 
@@ -174,13 +169,8 @@ Modify the block below if there are any special requirements.
 {% endcomment %}
 <p id="requirements">
   <strong>Requirements:</strong>
-  {% if online == "false" %}
-    Participants must bring a laptop with a
-    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
-  {% else %}
-    Participants must have access to a computer with a
-    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on.
-  {% endif %}
+  Participants must bring a laptop with a
+    Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) on which they have administrative privileges.  They should have a working virtual machine or Docker container environment as listed in the pre-exercises section.
 </p>
 
 {% comment %}
@@ -192,26 +182,14 @@ special instructions.
 <p id="accessibility">
   <strong>Accessibility:</strong>
 {% if online == "false" %}
-  We are committed to making this workshop
-  accessible to everybody.  For workshops at a physical location, the workshop organizers have checked that:
-</p>
-<ul>
-  <li>The room is wheelchair / scooter accessible.</li>
-  <li>Accessible restrooms are available.</li>
-</ul>
-<p>
   We are dedicated to providing a positive and accessible learning environment for all. Please
   notify the instructors in advance of the workshop if you require any accommodations or if there is
   anything we can do to make this workshop more accessible to you.
 </p>
 {% else %}
-  We are dedicated to providing a positive and accessible learning environment for all. 
-  We do not require participants to provide documentation of disabilities or disclose any unnecessary personal information. 
-  However, we do want to help create an inclusive, accessible experience for all participants. 
-  We encourage you to share any information that would be helpful to make your Carpentries experience accessible.
-  To request an accommodation for this workshop, please fill out the 
-  <a href="https://carpentries.typeform.com/to/B2OSYaD0">accommodation request form</a>.
-  If you have questions or need assistance with the accommodation form please <a href="mailto:team@carpentries.org">email us</a>.
+  We are dedicated to providing a positive and accessible learning environment for all. Please
+  notify the instructors in advance of the workshop if you require any accommodations or if there is
+  anything we can do to make this workshop more accessible to you.
 </p>
 {% endif %}
 
@@ -239,6 +217,7 @@ Display the contact email address set in the configuration file.
   {% endif %}
   for more information.
 </p>
+
 
 {% comment %}
 WHO CAN ATTEND?
@@ -269,14 +248,15 @@ CODE OF CONDUCT
 <h2 id="code-of-conduct">Code of Conduct</h2>
 
 <p>
-Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Code of Conduct</a>. This document also outlines how to report an incident if needed.
+All workshop participants are expected to follow the <a href="https://cds.cern.ch/record/2240689/files/BrochureCodeofConductEN.pdf?version=1">CERN Code of Conduct</a>.
 </p>
-
+{% comment%}
 <p class="text-center">
   <a href="https://goo.gl/forms/KoUfO53Za3apOuOK2">
     <button type="button" class="btn btn-info">Report a Code of Conduct Incident</button>
   </a>
 </p>
+{% endcomment %}
 <hr/>
 
 
@@ -305,6 +285,7 @@ We will use this <a href="{{ page.collaborative_notes }}">collaborative document
 
 {% comment %}
 SURVEYS - DO NOT EDIT SURVEY LINKS
+
 <h2 id="surveys">Surveys</h2>
 <p>Please be sure to complete these surveys before and after the workshop.</p>
 {% if site.carpentry == "incubator" %}
@@ -352,8 +333,6 @@ of code below the Schedule `<h2>` header below with
 
 <h2 id="schedule">Schedule</h2>
 
-{% if site.carpentry == "swc" %}
-{% include swc/schedule.html %}
 {% if site.carpentry == "cms" %}
 {% include swc/schedule.html %}
 {% elsif site.carpentry == "dc" %}
